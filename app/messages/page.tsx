@@ -9,7 +9,7 @@ export default function Messages() {
   const send = async () => {
     if(!input) return
     const messages = [...log, {role:'user', content:input}]
-    setLog(messages); setInput('')
+    setLog(messages as { role: 'user' | 'assistant'; content: string }[]); setInput('')
     const res = await apiChat(messages, "You are HiveBot, the helpful assistant for HouseHive.ai.")
     setLog([...messages, {role:'assistant', content:res.reply}])
   }
