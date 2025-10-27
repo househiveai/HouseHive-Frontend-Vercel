@@ -1,25 +1,58 @@
+import "./globals.css";
+import { Inter } from "next/font/google";
 
-import './globals.css'
-export const metadata = { title: 'HouseHive.ai', description: 'AI-Powered Property Assistant' }
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata = {
+  title: "HouseHive.ai — AI-Powered Property Management",
+  description:
+    "Your smart co-host for every home, rental, and guest. Manage tenants, automate maintenance, and optimize rent with AI.",
+  openGraph: {
+    title: "HouseHive.ai — AI-Powered Property Management Platform",
+    description:
+      "HouseHive automates tenant communication, maintenance tracking, and rent optimization using AI.",
+    url: "https://househive.ai",
+    siteName: "HouseHive.ai",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HouseHive.ai — Smart Co-Host for Every Property",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HouseHive.ai — AI-Powered Property Management Platform",
+    description:
+      "Your smart co-host for every home, rental, and guest. Manage tenants, automate maintenance, and optimize rent with AI.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>
-        <div style={{maxWidth: 1100, margin: '0 auto', padding: 24}}>
-          <header>
-            <h1 style={{fontWeight:700}}>🏠 HouseHive.ai</h1>
-            <nav>
-              <a href="/dashboard">Dashboard</a>
-              <a href="/properties">Properties</a>
-              <a href="/tasks">Maintenance</a>
-              <a href="/messages">Messages</a>
-              <a href="/billing">Billing</a>
-              <a href="/">Logout</a>
-            </nav>
-          </header>
-          {children}
-        </div>
-      </body>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta
+          name="theme-color"
+          content="#111111"
+        />
+      </head>
+      <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
