@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { apiChat } from "@/utils/apiChat";
+import { apiChat } from "../../utils/apiChat";
 
 declare global {
   namespace JSX {
